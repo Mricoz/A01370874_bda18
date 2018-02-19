@@ -1,3 +1,5 @@
+-- Mauricio Rico / A01370874
+
 SELECT * FROM orderdetails WHERE orderLineNumber = 1 and quantityOrdered > 50;
 609.20
 
