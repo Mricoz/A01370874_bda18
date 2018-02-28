@@ -48,10 +48,6 @@ CREATE PROCEDURE update_original_languages()
 			LEAVE read_loop;
 		END IF;
 
-		IF (SELECT category_id FROM film_category WHERE film_id = id) = 6 THEN
-
-		END IF;
-	    END LOOP;
 	    CLOSE cursor;
   END $$
 DELIMITER ;
