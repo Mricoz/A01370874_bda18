@@ -1,0 +1,52 @@
+Mauricio Rico Zavala
+A01370874
+
+17-04-18
+
+Ejercicio Neo4j
+
+Utilizando la base de datos Movies de ejemplo resuelve las siguientes
+preguntas:
+
+1. ¿Cuántos actores hay?
+
+MATCH (n:Person)-[a:ACTED_IN]->() RETURN count(DISTINCT n)
+
+OUTPUT: 102
+
+2. ¿cuántos productores hay?
+
+MATCH (n:Person)-[a:PRODUCED]->() RETURN count(DISTINCT n)
+
+OTUPUT: 8
+
+3. ¿cuántos directores hay?
+
+MATCH (n:Person)-[a:DIRECTED]->() RETURN count(DISTINCT n)
+
+OUTPUT: 28
+
+4. ¿cuántas películas hay?
+
+MATCH (n: Movie) RETURN count(n)
+
+OUTPUT: 38
+
+5. ¿Quién ha escrito más películas?
+
+MATCH (a)-[:WROTE]->(n) RETURN a, COLLECT(n) as movies ORDER BY SIZE(movies) DESC LIMIT 1
+
+OUTPUT: Andy Wachowski, 2 movies
+
+6. El top 5 de películas con el mejor Rating
+
+
+7. ¿Qué personas debería conocer Al Pacino para que le presentaran a
+Audrey Tautou?
+
+
+8. ¿Qué actores que han producido y actuado en la misma película?
+
+MATCH (n)-[:ACTED_IN]->(m)<-[:PRODUCED]-(n) RETURN n
+
+OUTPUT: Nadie
